@@ -3,9 +3,9 @@
 /*MAKE SURE TO RETURN ALL OF THE ANSWERS ON THESE TASKS, IF YOU DON'T, THE AUTOGRADER WILL NOT WORK*/
 
 /*
-When doing these tasks, we recommend using console.log to test the output of your code to make sure it works correctly.
+When doing these tasks, we recommend using return to test the output of your code to make sure it works correctly.
 This will usually entail console logging the answer directly or console logging the invocation (call) of the function so when it
-returns a value, that value will be logged to the console.  An example of this would be:  console.log(theFunction(value1,value2))
+returns a value, that value will be logged to the console.  An example of this would be:  return(theFunction(value1,value2))
 */
 
 /*
@@ -14,11 +14,17 @@ Task 1a - Voting Age
 Do the following:   
    1. Create a variable called votingAge and assign it a value
    2. Console log true if age is 18 or higher
-
+no
    HINT: no function required
 */
 
-
+var votingAge = 20;
+if (votingAge >= 18) {
+  return (true)
+}
+  else {
+    return(false)
+  }
 
 /*
 Task 1b - Values
@@ -31,9 +37,10 @@ Do the following:
    HINT: no function required
 */
 
-
-
-
+var Num1 = 3
+var Num2 = 3
+var Num1 = Num1 + Num2
+return(Num1)
 
 /*
 Task 1c - Convert Strings to Numbers
@@ -46,8 +53,10 @@ Do the following:
    HINT: look up the Number method
 */
 
-
-
+var Year = '1999'
+var Year = Number(Year)
+return(Year)
+ 
 
 /*
 Task 1d - Multiply
@@ -58,9 +67,12 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-    /*add your code here*/
-  }
+
+function multiply(a,b){
+    return(a*b);
+}
+
+multiply(2,10);
 
 
 
@@ -74,9 +86,11 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-    /*add your code here*/
+function dogYears(a){
+    return(a*7);
 }
+
+dogYears(10);
 
 
 
@@ -107,9 +121,38 @@ Use the hungryDog function and feeding requirements below to do the following:
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
+function hungryDog(DogAge,DogWeight){
+  if (DogAge<=1) { //This will do the math for puppies! 
+    if (DogAge<=.33) {
+        return ((DogWeight*.1)+" lbs")
+      }
+      else if (DogAge<=.58) {
+        return ((DogWeight*.05)+" lbs")
+      }
+      else {
+        return ((DogWeight*.04)+" lbs")
+      }
   }
+  else { //This does  the math for dogs older than 1 yr
+      if (DogWeight<=5) {
+        return ((DogWeight*.05)+" lbs")
+      }
+      else if (DogWeight<=10) {
+        return ((DogWeight*.04)+" lbs")
+
+      }
+      else if (DogWeight<=15) {
+        return ((DogWeight*.03)+" lbs")
+  
+      }
+      else {
+        return ((DogWeight*.02)+" lbs")
+      }
+    }
+  }
+
+
+hungryDog(2,10);
 
 
 
@@ -134,9 +177,65 @@ Use the game function below to do the following:
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-function game(user, computer){
-    /*add your code here*/
+game("Paper")
+
+function game (user, computer) {
+  
+  //Print Your Choice
+  //return ("You picked "+user)
+
+  //Computer's Choice
+  var computer = Math.random()
+  if (computer <=.33) {
+    computer = "Rock";
+  }
+  else if (computer <=.66) {
+    computer="Paper";
+  }
+  else {
+    computer="Scissors";
+  }
+
+  //Print Computer's Choice
+  //return("Computer Picked "+computer)
+
+
+  //Print Outcome
+
+  //If User Picked Rock
+  if (user==="Rock"&&computer==="Rock") {
+    return("it's a tie")
+  }
+  else if (user==="Rock"&&computer==="Scissors") {
+    return("you win!")
+  }
+  else if (user==="Rock"&&computer==="Paper") {
+    return("you lose!")
+  }
+
+//If User Picked Scissors
+  if (user==="Scissors"&&computer==="Rock") {
+    return("you lose!")
+  }
+  else if (user==="Scissors"&&computer==="Scissors") {
+    return("it's a tie")
+  }
+  else if (user==="Scissors"&&computer==="Paper") {
+    return("you win!")
+  }
+
+  //If User Picked Paper
+  if (user==="Paper"&&computer==="Rock") {
+    return("you win!")
+  }
+  else if (user==="Paper"&&computer==="Scissors") {
+    return("you lose!")
+  }
+  else if (user==="Paper"&&computer==="Paper") {
+    return("it's a tie")
+  }
 }
+
   
   
 
@@ -157,6 +256,7 @@ function miles(/*add your code here*/){
 
 
 
+
 //Task 5b - Feet to CM
 /*
 Using the feet function below do the following:
@@ -169,6 +269,17 @@ function feet(/*add your code here*/){
     /*add your code here*/
   }
  
+miles(25);
+
+function miles(kilometers){
+    return(kilometers*0.621371)
+  }
+
+feet(100)
+
+function feet(centimeters){
+    return(centimeters*0.0328084)
+  }
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -181,9 +292,13 @@ Using the annoyingSong function below do the following:
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
-  }
+annoyingSong(10)
+
+function annoyingSong(StartingBottle){
+        for (let i=StartingBottle; i>0; i--) {
+        return (`${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i-1} bottles of soda on the wall`)   
+        }
+}
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -200,9 +315,25 @@ Using the grade function below do the following:
    60-69 should return 'you got a D'
    below should return 'you got an F'
 */
+
+grade(50);
   
-function grade(/*Your Code here */){
-  /*Your Code here */
+function grade(NumberGrade){
+  if (NumberGrade >= 90) {
+    return("you got an A");
+  }
+    else if (NumberGrade >=80) {
+      return("you got a B");
+    }
+    else if (NumberGrade >=70) {
+      return("you got a C");
+    }
+    else if (NumberGrade >=60) {
+      return("you got a D");
+    }
+    else {
+      return("you got an F");
+    }
   }
   
   
@@ -228,7 +359,7 @@ function vowelCounter(/*add your code here*/) {
 
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
 function foo(){
-    //console.log('its working');
+    //return('its working');
     return 'bar';
 }
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Don't touch the code after this line! 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
@@ -243,3 +374,4 @@ export default{
     annoyingSong,
     grade
 }
+
